@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pferde-Versicherungskonzept — Barmenia · HUK-Coburg · GHV · Agria</title>
+<style>
+  :root{
+    --royal:#2b2566; --royal2:#3b3486; --violet:#5b4fa8; --gold:#b8860b; --gold2:#d4a72c;
+    --ink:#241f2e; --muted:#6a6480; --line:#e3dff0; --rowalt:#f7f5fd; --bg:#f4f2fa;
+    --good:#1f6b4f; --goodbg:#e7f4ee; --goodbd:#bfe0cf; --warn:#8a2f1c; --warnbg:#fbeae6; --warnbd:#e6c3ba; --yes:#1f6b4f;
+    --barm:#0e7c66; --barmbg:#e6f3ef; --barmbd:#b7ddd1;
+    --huk:#1c5d8c; --hukbg:#e7f0f7; --hukbd:#bcd5e8;
+    --agria:#b5651d; --agriabg:#fbefe2; --agriabd:#e8c7a8;
+    --intern:#7a2f8a; --internbg:#f6ecf8; --internbd:#dcc0e3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.55}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px 80px}
+  header.hero{background:linear-gradient(135deg,var(--royal),var(--violet));color:#fff;padding:42px 22px 34px;border-bottom:5px solid var(--gold)}
+  header.hero .inner{max-width:1040px;margin:0 auto}
+  .kicker{letter-spacing:2px;font-size:13px;opacity:.85;text-transform:uppercase}
+  h1{margin:8px 0 4px;font-size:31px;line-height:1.1}
+  .sub{font-size:16px;opacity:.92}
+  .bar{max-width:1040px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  .bar .stamp{color:var(--muted);font-size:13px}
+  .btn{display:inline-block;background:var(--gold);color:#fff;text-decoration:none;padding:9px 16px;border-radius:7px;font-weight:bold;font-family:Georgia,serif;border:none;cursor:pointer;font-size:14px}
+  .btn:hover{background:var(--gold2)} .btn.alt{background:var(--royal)} .btn.alt:hover{background:var(--royal2)}
+  nav.toc{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 8px}
+  nav.toc a{font-size:13px;color:var(--royal);text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 12px}
+  nav.toc a:hover{background:var(--royal);color:#fff;border-color:var(--royal)}
+  .blockhead{margin:34px 0 6px;padding:12px 18px;border-radius:8px;color:#fff}
+  .blockhead h2{border:none;color:#fff;margin:0;font-size:21px;padding:0}
+  .blockhead p{margin:3px 0 0;font-size:13px;opacity:.92}
+  .bh-barm{background:linear-gradient(90deg,var(--barm),#1aa183)}
+  .bh-huk{background:linear-gradient(90deg,var(--huk),#3a86b8)}
+  .bh-ghv{background:linear-gradient(90deg,var(--royal),var(--violet))}
+  .bh-agria{background:linear-gradient(90deg,var(--agria),#d4843a)}
+  section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:16px 0;box-shadow:0 1px 3px rgba(43,37,102,.05)}
+  h2{color:var(--royal);font-size:21px;margin:0 0 4px;border-bottom:2px solid var(--gold);padding-bottom:8px}
+  h2 .n{color:var(--gold);font-size:16px;margin-right:8px}
+  h2 .ins{float:right;font-size:11px;border-radius:12px;padding:2px 10px;font-weight:normal}
+  .ins-barm{background:var(--barmbg);color:var(--barm);border:1px solid var(--barmbd)}
+  .ins-huk{background:var(--hukbg);color:var(--huk);border:1px solid var(--hukbd)}
+  .ins-ghv{background:#efeaf9;color:var(--royal);border:1px solid var(--line)}
+  .ins-agria{background:var(--agriabg);color:var(--agria);border:1px solid var(--agriabd)}
+  h3{color:var(--violet);font-size:16px;margin:16px 0 6px}
+  p{margin:8px 0} .lead{color:var(--muted);font-size:14px;margin:4px 0 12px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--royal);color:#fff;border-bottom:none;font-size:12.5px}
+  tbody tr:nth-child(even){background:var(--rowalt)}
+  td.c,th.c{text-align:center}
+  .yes{color:var(--yes);font-weight:bold} .no{color:#b7b2c4} .val{font-weight:bold;color:var(--royal)}
+  ul{margin:8px 0 8px 2px;padding-left:20px} li{margin:4px 0}
+  .box{border-radius:9px;padding:12px 15px;margin:13px 0;font-size:13.5px}
+  .box.good{background:var(--goodbg);border:1px solid var(--goodbd);color:var(--good)}
+  .box.warn{background:var(--warnbg);border:1px solid var(--warnbd);color:var(--warn)}
+  .box.note{background:#f3f1fb;border:1px solid var(--line);color:var(--muted);font-style:italic}
+  .box.why{background:var(--barmbg);border:1px solid var(--barmbd);color:var(--barm)}
+  .box.whyh{background:var(--hukbg);border:1px solid var(--hukbd);color:var(--huk)}
+  .box.intern{background:var(--internbg);border:1px solid var(--internbd);color:var(--intern)}
+  .box.intern strong{text-transform:uppercase;letter-spacing:.5px;font-size:12px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  footer{color:var(--muted);font-size:13px;text-align:center;margin-top:30px}
+  .src a{color:var(--violet)}
+  @media print{ body{background:#fff} .bar,nav.toc{display:none} section{break-inside:avoid;box-shadow:none}
+    header.hero,thead th,.blockhead{-webkit-print-color-adjust:exact;print-color-adjust:exact} }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="inner">
+    <div class="kicker">Pferde-Versicherungskonzept · Best-of-Breed</div>
+    <h1>Barmenia · HUK-Coburg · GHV · Agria</h1>
+    <div class="sub">Ein durchdachtes Konzept — jedes Risiko beim stärksten Träger</div>
+  </div>
+</header>
+
+<div class="bar">
+  <a class="btn" href="GHV-Leistungsuebersicht.pdf" target="_blank">⬇ PDF herunterladen</a>
+  <button class="btn alt" onclick="window.print()">🖶 Drucken / als PDF speichern</button>
+  <span class="stamp">Stand 08/2025 · Leistungsübersicht zur Kundenargumentation</span>
+</div>
+
+<div class="wrap">
+  <nav class="toc">
+    <a href="#konzept">Versicherungs-Architektur</a>
+    <a href="#barmenia">A · Barmenia (Haupt)</a>
+    <a href="#huk">B · HUK-Coburg (Anhänger/KFZ)</a>
+    <a href="#ghv">C · GHV (Spezial)</a>
+    <a href="#agria">D · Agria (Fohlen-OP)</a>
+  </nav>
+
+  <!-- KONZEPT -->
+  <section id="konzept">
+    <h2><span class="n">★</span>Versicherungs-Architektur — warum mehrere Träger sinnvoll sind</h2>
+    <p class="lead">Kundenargumentation: Kein einzelner Versicherer ist in allen Sparten der beste. Wir bündeln die Standardabsicherung bei einem Testsieger und platzieren Spezialrisiken dort, wo es echte Spezialisten gibt.</p>
+    <p><strong>Best-of-Breed statt Kompromiss:</strong> Standardrisiken (OP, Haftpflicht, Unfall, Rechtsschutz) laufen über die <strong>Barmenia</strong> (Hauptträger). Fahrzeuge & Anhänger — vor allem der <strong>Pferdeanhänger</strong> und Sonder-KFZ — über die <strong>HUK-Coburg</strong>. Spezialrisiken, die Barmenia nicht führt (Lebens-/Zuchtversicherung, Leibesfrucht, Deckhengst, Betriebs- & Reitlehrerhaftpflicht), über die <strong>GHV</strong>. Und die Fohlen-OP ab Geburt über die <strong>Agria</strong>.</p>
+    <table>
+      <thead><tr><th>Absicherung</th><th>Träger</th><th>Warum dieser Träger</th></tr></thead>
+      <tbody>
+        <tr><td>Pferde-OP</td><td><span class="val" style="color:var(--barm)">Barmenia</span></td><td>unbegrenzte Erstattung (Premium), 4-fach GOT im Notfall, freie weltweite Tierarztwahl</td></tr>
+        <tr><td>Pferdehalterhaftpflicht</td><td><span class="val" style="color:var(--barm)">Barmenia</span></td><td><strong>bis 100 Mio. €</strong>, Testsieger (FFF+), Fohlen 12 Mon. gratis, Forderungsausfall</td></tr>
+        <tr><td>Unfall (Halter/Reiter)</td><td><span class="val" style="color:var(--barm)">Barmenia</span></td><td>starke Reha-/Bergungs-/Progressionsleistungen, gute Testnoten</td></tr>
+        <tr><td>Rechtsschutz <strong>inkl. Vereinsrecht</strong></td><td><span class="val" style="color:var(--barm)">Barmenia</span> <span style="color:var(--muted)">(über ROLAND)</span></td><td>Privat/Beruf/Verkehr + Vereins-Rechtsschutz; unbegrenzte Gerichts-/Mediationskosten</td></tr>
+        <tr><td><strong>Pferdeanhänger</strong> / Anhänger</td><td><span class="val" style="color:var(--huk)">HUK-Coburg</span></td><td>Haftpflicht bis 100 Mio., Teil-/Vollkasko, Sturm ab Windstärke 7, günstig</td></tr>
+        <tr><td>Sonder-KFZ / motorisierter Pferdetransporter</td><td><span class="val" style="color:var(--huk)">HUK-Coburg</span></td><td>Lieferwagen/Transporter bis 3,5 t; größere Pferde-LKW als Spezialfahrzeug</td></tr>
+        <tr><td>Lebensversicherung / Zuchtuntauglichkeit / Deckhengst</td><td><span class="val">GHV</span></td><td>Barmenia bietet das nicht; GHV versichert auch Zuchtstuten</td></tr>
+        <tr><td>Leibesfrucht- & Fohlenlebensversicherung</td><td><span class="val">GHV</span></td><td>Barmenia bietet das nicht</td></tr>
+        <tr><td>Reitlehrer-/Beritt-/Schulpferde-Haftpflicht</td><td><span class="val">GHV</span></td><td>Barmenia bietet das nicht; bei GHV auch ohne Prüfung</td></tr>
+        <tr><td>Betriebshaftpflicht Pferdebetrieb / Gestüt</td><td><span class="val">GHV</span></td><td>Barmenia bietet das nicht</td></tr>
+        <tr><td>Fohlen-OP ab Geburt (erste 30 Tage)</td><td><span class="val" style="color:var(--agria)">Agria</span></td><td>Lücke bei Barmenia & GHV — Züchter-Versicherung schließt sie</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== BLOCK A: BARMENIA ===================== -->
+  <div class="blockhead bh-barm">
+    <h2>Block A · Barmenia — Hauptträger (Standardabsicherung)</h2>
+    <p>OP · Haftpflicht · Unfall · Rechtsschutz (über ROLAND) — gebündelt bei einem Testsieger-Versicherer.</p>
+  </div>
+
+  <section id="barmenia">
+    <h2><span class="n">A1</span>Pferde-OP-Versicherung <span class="ins ins-barm">Barmenia</span></h2>
+    <p class="lead">Freie Tierarzt-/Klinikwahl weltweit · Direktabrechnung mit Klinik · Soforthilfe ohne Wartezeit bei Unfall.</p>
+    <table>
+      <thead><tr><th>Leistung</th><th class="c">Basis</th><th class="c">Top</th><th class="c">Premium</th></tr></thead>
+      <tbody>
+        <tr><td>Operationskosten je Jahr</td><td class="c">bis 2.500 €/OP</td><td class="c val">unbegrenzt</td><td class="c val">unbegrenzt</td></tr>
+        <tr><td>GOT-Satz</td><td class="c">2-fach</td><td class="c">2-fach</td><td class="c">2-fach (Notfall 4-fach)</td></tr>
+        <tr><td>Klinikunterbringung</td><td class="c">15 €/Tag · 7 T.</td><td class="c">30 €/Tag · 10 T.</td><td class="c">unbegrenzt · 14 T.</td></tr>
+        <tr><td>Nachbehandlung</td><td class="c">7 Tage</td><td class="c">10 Tage</td><td class="c">14 Tage</td></tr>
+        <tr><td>Gelenkchip-OP</td><td class="c no">—</td><td class="c">bis 1.500 €</td><td class="c yes">✓</td></tr>
+        <tr><td>Selbstbeteiligung wählbar</td><td class="c" colspan="3">0 € · 250 € · 500 € · 1.000 €</td></tr>
+        <tr><td>Eintrittsalter / Wartezeit</td><td class="c" colspan="3">bis 19 Jahre · 3 Monate (Unfall sofort)</td></tr>
+      </tbody>
+    </table>
+    <div class="box why"><strong>Warum Barmenia hier:</strong> Im Premium <strong>unbegrenzte OP-Kostenerstattung</strong> und <strong>4-facher GOT-Satz im Notfall</strong> (Höchstsatz), freie weltweite Tierarztwahl und Direktabrechnung mit der Klinik. Top-Tarif-Niveau — stärker als der Standardmarkt.</div>
+    <div class="box warn"><strong>Nicht gedeckt:</strong> Routine-Untersuchungen, Zahnpflege, Transportkosten, <strong>angeborene Fehlentwicklungen</strong> und hufbezogene Behandlungen. Zuchtbedingte Geburts-/Decksprung-OPs sind kein OP-Thema → dafür GHV-Leben bzw. Agria-Fohlen-OP.</div>
+  </section>
+
+  <section>
+    <h2><span class="n">A2</span>Pferdehalterhaftpflichtversicherung <span class="ins ins-barm">Barmenia</span></h2>
+    <table>
+      <thead><tr><th>Leistung</th><th>Umfang</th></tr></thead>
+      <tbody>
+        <tr><td>Deckungssumme (Personen/Sach/Vermögen)</td><td class="val">bis 100 Mio. € (BarmeniaDirekt)</td></tr>
+        <tr><td>Versicherte Personen</td><td>Halter, Familie, private Tierhüter, Fremdreiter, Reitbeteiligte</td></tr>
+        <tr><td>Fohlen mitversichert</td><td>bis 12 Monate kostenfrei</td></tr>
+        <tr><td>Turniere, Rennen, Tierschauen, Training</td><td>mitversichert</td></tr>
+        <tr><td>Forderungsausfalldeckung</td><td>ab 2.500 € (Schaden durch unversichertes fremdes Pferd)</td></tr>
+        <tr><td>Mietsachschäden (Anhänger, Reitutensilien, Stallungen)</td><td>abgedeckt</td></tr>
+        <tr><td>Ausland</td><td>EU unbegrenzt · weltweit bis 5 Jahre</td></tr>
+        <tr><td>Tarife / Selbstbeteiligung</td><td>Basis / Top / Premium · 0 € oder 150 €</td></tr>
+      </tbody>
+    </table>
+    <div class="box why"><strong>Warum Barmenia hier:</strong> Deckung <strong>bis 100 Mio. €</strong> (BarmeniaDirekt) — weit über dem Marktstandard. Häufiger <strong>Testsieger (FFF+)</strong>, Fohlen 12 Monate gratis, Forderungsausfall inklusive und Absicherung der gesetzlichen Gefährdungshaftung des Tierhalters.</div>
+    <div class="box note"><strong>Warum nicht die HUK für die Pferdehaftpflicht?</strong> Die HUK-Coburg bietet zwar eine günstige Pferdehaftpflicht (ab ~110 €/Jahr), aber nur bis <strong>15 Mio. €</strong> Deckungssumme. Barmenia liegt mit <strong>bis 100 Mio. €</strong> um ein Vielfaches höher — bei Personenschäden (z. B. dauerhafte Invalidität eines Reiters) ist die hohe Summe entscheidend. Darum: Haftpflicht über Barmenia, die HUK-Coburg nur für Fahrzeuge/Anhänger.</div>
+  </section>
+
+  <section>
+    <h2><span class="n">A3</span>Unfallversicherung (Halter / Reiter) <span class="ins ins-barm">Barmenia</span></h2>
+    <table>
+      <thead><tr><th>Leistung (Top-Schutz)</th><th class="c">Umfang</th></tr></thead>
+      <tbody>
+        <tr><td>Invaliditäts-Progression</td><td class="c">bis 350 %</td></tr>
+        <tr><td>Kosmetische Operationen</td><td class="c">bis 10.000 €</td></tr>
+        <tr><td>Bergungskosten</td><td class="c">bis 30.000 €</td></tr>
+        <tr><td>Reha-Maßnahmen</td><td class="c">bis 10.000 €</td></tr>
+        <tr><td>Sofortleistung bei schwerem Unfall</td><td class="c">bis 6.000 €</td></tr>
+        <tr><td>Umschulungsmaßnahmen</td><td class="c">bis 6.000 €</td></tr>
+        <tr><td>Knochenbruch-Extra (gefährliches Hobby)</td><td class="c">bis 5.000 €</td></tr>
+        <tr><td>Assistance (Menüservice, Begleitung, Reinigung)</td><td class="c">bis 6 Monate</td></tr>
+      </tbody>
+    </table>
+    <div class="box why"><strong>Warum Barmenia hier:</strong> Leistungsstarker, gut bewerteter Unfallschutz (Stiftung-Warentest-getestet) mit hohen Reha-, Bergungs- und Progressionsleistungen — Reiten als „gefährliches Hobby" sauber einschließbar.</div>
+  </section>
+
+  <section>
+    <h2><span class="n">A4</span>Rechtsschutzversicherung <span class="ins ins-barm">Barmenia · ROLAND</span></h2>
+    <p class="lead">Angeboten über die Barmenia, Risikoträger ist der Spezial-Rechtsschutzversicherer <strong>ROLAND</strong>. Drei Tarife Basis / Komfort / Premium — die Bausteine <strong>Privat, Beruf, Verkehr</strong> sind immer enthalten.</p>
+    <table>
+      <thead><tr><th>Baustein / Leistung</th><th>Inhalt</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Privat-Rechtsschutz</strong> (immer)</td><td>Schadenersatz, Vertrag (Pferdekauf, Tierarzt), Steuer, Sozialrecht, Beratung</td></tr>
+        <tr><td><strong>Berufs-Rechtsschutz</strong> (immer)</td><td>Arbeits-/Dienstrecht rund um die berufliche Tätigkeit</td></tr>
+        <tr><td><strong>Verkehrs-Rechtsschutz</strong> (immer)</td><td>Streit rund um Fahrzeug, Anhänger, Verkehrsunfall, Bußgeld</td></tr>
+        <tr><td>Immobilien-Rechtsschutz (optional)</td><td>Vermieter, Nachbarn, WEG, Stall-/Weidegrundstück</td></tr>
+        <tr><td>StrafrechtPlus (optional)</td><td>Verteidigung auch bei Vorwurf einer Vorsatzstraftat</td></tr>
+        <tr><td><strong>Vereins-Rechtsschutz</strong> (optional)</td><td>für Reitvereine — siehe unten</td></tr>
+        <tr><td>Deckungssumme Gerichts-/Mediationskosten</td><td class="val">unbegrenzt (über ROLAND)</td></tr>
+        <tr><td>Selbstbeteiligung / Service</td><td>frei wählbar · JurLine telefonische Rechtsberatung · Mediation</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Vereins-Rechtsschutz (ROLAND) — wichtig für Reitvereine</h3>
+    <table>
+      <thead><tr><th>Leistung</th><th>Umfang</th></tr></thead>
+      <tbody>
+        <tr><td>Deckungssumme je Rechtsschutzfall</td><td class="val">bis 250.000 €</td></tr>
+        <tr><td>Strafkautions-Darlehen</td><td>bis 100.000 €</td></tr>
+        <tr><td>Versicherte Personen</td><td>der Verein, hauptamtliche Mitarbeiter der Geschäftsstelle, ehrenamtliche Vertreter (Vorstand) sowie Mitglieder, soweit sie satzungsgemäße Aufgaben für den Vorstand wahrnehmen</td></tr>
+        <tr><td>Straf- & Ordnungswidrigkeiten-Rechtsschutz</td><td>eingeschlossen</td></tr>
+        <tr><td>Mitgliedschaftsrechte</td><td>versichert (soweit keine Mehrkosten zu versicherten Ansprüchen)</td></tr>
+        <tr><td>Anfechtung von Beschlüssen der Jahreshauptversammlung</td><td>1× jährlich, max. 300 € Entschädigung/Jahr</td></tr>
+        <tr><td>JurLine telefonische Rechtsberatung</td><td>in allen Vereins-Bausteinen kostenlos</td></tr>
+      </tbody>
+    </table>
+    <div class="box why"><strong>Warum wichtig:</strong> Reit- und Pferdesportvereine tragen Vorstands- und Veranstalterrisiken (Haftung, Satzungsstreit, Bußgeld, Strafverfahren). Der ROLAND Vereins-Rechtsschutz schützt Verein <em>und</em> ehrenamtlichen Vorstand persönlich — ein starkes Argument im Vereinsumfeld.</div>
+
+    <h3>Für Pferdehalter besonders relevant</h3>
+    <table>
+      <thead><tr><th>Streitfall</th><th>Über welchen Baustein</th></tr></thead>
+      <tbody>
+        <tr><td>Streit aus Pferdekauf/-verkauf (Mängel, Rückabwicklung)</td><td>Vertrags-/Eigentums-Rechtsschutz</td></tr>
+        <tr><td>Streit um Tierarzt-/Klinikrechnung</td><td>Vertrags-Rechtsschutz</td></tr>
+        <tr><td>Pensions- oder Berittvertrag (Pflege, Haftung, Kündigung)</td><td>Vertrags-Rechtsschutz</td></tr>
+        <tr><td>Reitbeteiligungs-Vereinbarung</td><td>Vertrags-Rechtsschutz</td></tr>
+        <tr><td>Schadenersatz/Schmerzensgeld nach Reit-/Stallunfall</td><td>Schadenersatz-Rechtsschutz</td></tr>
+      </tbody>
+    </table>
+    <div class="box note"><strong>Wichtig:</strong> Der private Rechtsschutz deckt den privaten Pferdehalter. <strong>Gewerbliche Pferdebetriebe</strong> (Reitschule, Pensionsstall, Gestüt) brauchen einen <strong>Firmen-/Gewerbe-Rechtsschutz</strong> — den bietet Barmenia/ROLAND ebenfalls.</div>
+  </section>
+
+  <!-- ===================== BLOCK B: HUK-COBURG ===================== -->
+  <div class="blockhead bh-huk">
+    <h2>Block B · HUK-Coburg — Fahrzeuge & Anhänger</h2>
+    <p>Pferdeanhänger · Anhänger · Sonder-KFZ / Pferdetransporter — günstiger Testsieger-KFZ-Versicherer.</p>
+  </div>
+
+  <section id="huk">
+    <h2><span class="n">B1</span>Anhänger- & Pferdeanhängerversicherung <span class="ins ins-huk">HUK-Coburg</span></h2>
+    <table>
+      <thead><tr><th>Leistung</th><th>Umfang</th></tr></thead>
+      <tbody>
+        <tr><td>Haftpflicht-Deckungssumme</td><td class="val">bis 100 Mio. € (15 Mio. je geschädigte Person)</td></tr>
+        <tr><td>Teilkasko</td><td>Diebstahl/Unterschlagung · Sturm (ab Windstärke 7), Hagel, Blitz, Überschwemmung · Wildunfälle · Brand/Explosion · Glasbruch · Kurzschluss + Marderbiss · Schiffstransport</td></tr>
+        <tr><td>Vollkasko</td><td>zusätzlich: selbstverschuldete Unfälle · Vandalismus · Folgeschäden durch geplatzten Reifen</td></tr>
+        <tr><td>Pferdeanhänger — Kaskowert versicherbar</td><td>bis 50.000 €</td></tr>
+        <tr><td>Selbstbeteiligung</td><td>wählbar</td></tr>
+      </tbody>
+    </table>
+    <div class="box whyh"><strong>Warum HUK-Coburg hier:</strong> Günstiger Testsieger-KFZ-Versicherer; <strong>Sturmschutz bereits ab Windstärke 7</strong> (Marktstandard erst ab 8), breite Teilkasko inkl. Marderbiss, Pferdeanhänger als Sonderanhänger bis 50.000 € kaskoversicherbar.</div>
+    <div class="box warn"><strong>Vertriebsweg beachten:</strong> Im <strong>Online-Tarif (HUK24) sind Pferdeanhänger ausgeschlossen</strong>. Über die <strong>HUK-Coburg-Vertretung/Agentur</strong> sind Pferdeanhänger versicherbar — die <strong>Vollkasko nur über persönliche Beratung</strong>, nicht online. Für die Vermittlung also den Vertreterweg nutzen.</div>
+  </section>
+
+  <section>
+    <h2><span class="n">B2</span>Sonder-KFZ / motorisierter Pferdetransporter <span class="ins ins-huk">HUK-Coburg</span></h2>
+    <table>
+      <thead><tr><th>Fahrzeugart</th><th>Lösung</th></tr></thead>
+      <tbody>
+        <tr><td>Lieferwagen / Transporter / Kastenwagen / Pickup bis 3,5 t</td><td>HUK-Lieferwagen-Versicherung: Haftpflicht bis 100 Mio., Teil-/Vollkasko (privat oder eigene Zwecke)</td></tr>
+        <tr><td>Motorisierter Pferde-LKW / größerer Pferdetransporter</td><td>Spezialfahrzeug — individuelle Prüfung / ggf. Gewerbeversicherung über HUK-Vertretung</td></tr>
+        <tr><td>Pferdeanhänger (gezogen)</td><td>→ Anhängerversicherung B1</td></tr>
+      </tbody>
+    </table>
+    <div class="box note"><strong>Abgrenzung:</strong> Die Lieferwagen-Versicherung bis 3,5 t gilt für private Nutzung und Selbstständige, die eigene Güter transportieren — <strong>nicht</strong> für Speditionen/Zulieferdienste. Echte Pferde-LKW (über 3,5 t / gewerblicher Transport) sind Spezialfahrzeuge mit eigener Prüfung.</div>
+  </section>
+
+  <!-- ===================== BLOCK C: GHV ===================== -->
+  <div class="blockhead bh-ghv">
+    <h2>Block C · GHV — Spezialträger (was die Barmenia nicht bietet)</h2>
+    <p>Leben · Zucht · Deckhengst · Leibesfrucht/Fohlen · Reitlehrer & Beritt · Betrieb. Deutschlands ältester Tierversicherer.</p>
+  </div>
+
+  <section id="ghv">
+    <h2><span class="n">C1</span>Pferdelebensversicherung — Leben · Tauglichkeit · Zucht <span class="ins ins-ghv">GHV</span></h2>
+    <p class="lead">Lebens- und Diebstahlversicherung für Fohlen, Reit-, Fahr-, Freizeit-, Turnier-, Zucht- und gewerblich genutzte Pferde.</p>
+    <table>
+      <thead><tr><th>Versichert ist Tod / Nottötung bzw. Verlust durch …</th><th class="c">Lebensvers.</th><th class="c">Unfalldeckung</th></tr></thead>
+      <tbody>
+        <tr><td>Krankheit</td><td class="c yes">✓</td><td class="c no">—</td></tr>
+        <tr><td>Unfall, Brand, Blitzschlag, Explosion</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+        <tr><td>Transport, Wolfsriss</td><td class="c yes">✓</td><td class="c no">—</td></tr>
+        <tr><td>Trächtigkeit und Geburt (Stute)</td><td class="c yes">✓</td><td class="c no">—</td></tr>
+        <tr><td>Kastration bis vollendetem 3. Lebensjahr</td><td class="c yes">✓</td><td class="c no">—</td></tr>
+        <tr><td>Diebstahl, Raub, Abschlachten in diebischer Absicht</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Bausteine:</strong> dauernde Unbrauchbarkeit zum Reiten/Fahren · besondere Risiken (Vielseitigkeit/Distanz/Fahren) · <strong>dauernde Zuchtuntauglichkeit — Deckhengst &amp; Zuchtstute</strong> · Leibesfrucht-/Fohlenlebensversicherung · Auktionsversicherung.</p>
+    <div class="box good"><strong>Konditionen:</strong> ab 7. Lebenstag bis 15 J. (mit Unbrauchbarkeit 10 J.) · 100 % bei Tod, 80 % bei Unbrauchbarkeit/Zuchtuntauglichkeit · Deckhengst nur mit Hengstbuch-Eintragung + Samenqualitätsprüfung · <strong>Zuchtstuten-Einschluss = GHV-Alleinstellung</strong>.</div>
+  </section>
+
+  <section>
+    <h2><span class="n">C2</span>Leibesfrucht- und Fohlenlebensversicherung <span class="ins ins-ghv">GHV</span></h2>
+    <ul>
+      <li>Beginn frühestens 10 Monate nach der letzten Bedeckung der Stute.</li>
+      <li>Mehrlingsgeburten: gilt nur für ein Fohlen; weitere gesund geborene separat versicherbar.</li>
+      <li>Geburt innerhalb 3 Tagen melden; bei Nottötung wegen angeborener/erworbener Mängel Unheilbarkeitsbescheinigung.</li>
+      <li>Nach Geburt Übergang in Fohlenlebensversicherung (Tod/Nottötung + dauernde Unbrauchbarkeit).</li>
+    </ul>
+    <div class="box warn">Reine <strong>Lebensversicherung</strong> (Wertersatz) — erstattet keine OP-/Behandlungskosten. Für Fohlen-OP-Kosten ab Geburt → Agria (Block D).</div>
+  </section>
+
+  <section>
+    <h2><span class="n">C3</span>Reitlehrerhaftpflicht · Berufsreiter · Beritt · Schulpferde <span class="ins ins-ghv">GHV</span></h2>
+    <div class="grid2">
+      <div><h3>Versicherte Personen</h3><ul>
+        <li>angestellte / freiberufliche Reitlehrer</li>
+        <li>Bereiter, Kutschfahrlehrer</li>
+        <li><strong>auch ohne Prüfung/Lizenz</strong></li>
+      </ul></div>
+      <div><h3>Versicherte Tätigkeiten</h3><ul>
+        <li>Reitunterricht, Aufsicht, Ausritte, Prüfungen</li>
+        <li>Veranstaltungen, Übungsgeräte</li>
+        <li>Einreiten/Ausbildung fremder Pferde (Beritt, mobil & stationär)</li>
+      </ul></div>
+    </div>
+    <table>
+      <thead><tr><th>Leistung</th><th>Umfang</th></tr></thead>
+      <tbody>
+        <tr><td>Deckungssumme Personen-/Sachschäden</td><td class="val">5 / 10 / 20 Mio. €</td></tr>
+        <tr><td>Vermögensschäden</td><td>500.000 €</td></tr>
+        <tr><td>Schäden am Berittpferd (Baustein)</td><td>12.000 € oder 25.000 € (10 % SB)</td></tr>
+        <tr><td>Schulpferde-Haftpflicht</td><td>inkl. privater Tierhalterhaftpflicht des Schulpferds</td></tr>
+      </tbody>
+    </table>
+    <div class="box note"><strong>Warum GHV:</strong> Diese Sparte bietet die Barmenia nicht. GHV versichert Reitlehrer sogar ohne Prüfungsnachweis und deckt Beritt-Schäden am fremden Pferd mit ab.</div>
+  </section>
+
+  <section>
+    <h2><span class="n">C4</span>Betriebshaftpflicht Pferdebetrieb (gewerblich) <span class="ins ins-ghv">GHV</span></h2>
+    <p class="lead">Drei Tarife Basis/Komfort/Premium. Kernrisiko: Obhuts-/Tierhüterschäden an fremden Pferden.</p>
+    <p><strong>Im Premium enthalten:</strong> Betriebsgebäude/Flächen, Reithalle + Reitplatz, Pensionspferde bis 2, Pferdezucht bis 5, Reitpferde bis 2, Privathaftpflicht inkl. Altenteiler, Photovoltaik, Umwelthaftpflicht-Basis.</p>
+    <table>
+      <thead><tr><th>Zusatzbaustein</th><th>Was gedeckt ist</th></tr></thead>
+      <tbody>
+        <tr><td>Reitpferde gewerblich</td><td>kommerzieller Einsatz</td></tr>
+        <tr><td>Schäden an Pensionspferden (Obhut)</td><td>Tierhüterhaftung — fremdes Pferd in Obhut kommt zu Schaden</td></tr>
+        <tr><td>Reit-/Fahrlehrer mit/ohne Schaden am Berittpferd</td><td>Beritt im Betrieb</td></tr>
+        <tr><td>Gewerbliche Kutsch-/Planwagenfahrten</td><td>bezahlte Fahrten</td></tr>
+        <tr><td>Reiterstube · Vereinshaftpflicht</td><td>Nebenbetrieb / Verein</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn"><strong>Tierhüterhaftung (BGB):</strong> Sobald der Betrieb fremde Pferde betreut, haftet er statt des Halters — ohne Obhuts-/Tierhüterbaustein mit Privatvermögen.</div>
+  </section>
+
+  <section>
+    <h2><span class="n">C5</span>Landwirtschaftliche Betriebshaftpflicht <span class="ins ins-ghv">GHV</span></h2>
+    <p class="lead">Für landwirtschaftlich geprägte Pferdebetriebe / Gestüte mit Flächen und Nebenbetrieben.</p>
+    <h3>Grunddeckung</h3>
+    <table>
+      <thead><tr><th>Leistung</th><th>Umfang</th></tr></thead>
+      <tbody>
+        <tr><td>Deckungssumme Personen-/Sachschäden (pauschal)</td><td class="val">bis 10 Mio. €</td></tr>
+        <tr><td>Vermögensschäden</td><td>1,5 Mio. €</td></tr>
+        <tr><td>Gewahrsamsschäden (inkl. Betriebs-, Brems-, Bruchschäden)</td><td>bis 50.000 €</td></tr>
+        <tr><td>Tierhaltung bis BImSchG-Mengenschwelle</td><td>beitragsfrei</td></tr>
+        <tr><td>Umwelt-/Photovoltaik (auch fremde Dächer)</td><td>eingeschlossen</td></tr>
+        <tr><td>Nebenbetriebe: Hofladen, Ferien auf dem Bauernhof (bis 32 Betten), Lohnunternehmen, Milchkasko</td><td>optional</td></tr>
+      </tbody>
+    </table>
+    <h3>Speziell für Pferdebetriebe — Bausteine & Deckungssummen</h3>
+    <p class="lead">Pauschal-Deckungssumme je Tarif: <strong>Basis 5 Mio. € · Komfort 6 Mio. € · Premium 10 Mio. €</strong> (Personen-/Sachschäden) bzw. 0,5 / 1 / 1,5 Mio. € (Vermögensschäden). Die meisten Pferdepositionen laufen über diese Pauschalsumme — nur Schäden am fremden Pferd/Gut haben eigene Sublimits.</p>
+    <table>
+      <thead><tr><th>Baustein</th><th>Was versichert ist</th><th>Inkl. / Summe</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pferdezucht</strong></td><td>Schäden der Zuchttiere an Dritten — inkl. „Zuchttiere zum Belegen fremder Tiere" (Deckhengst deckt fremde Stuten)</td><td>bis 5 Tiere · Pauschalsumme</td></tr>
+        <tr><td><strong>Reitpferde</strong></td><td>Haftpflicht für Reitpferde; gewerblich als eigener Baustein</td><td>privat bis 2 · Pauschalsumme</td></tr>
+        <tr><td>… gemietete Boxen / geliehene Anhänger</td><td>Gewahrsams-/Mietsachschäden am fremden Gut (SB 10 %, mind. 100 €)</td><td class="val">25.000 € (2 Mon.) / 50.000 € (3 Mon.)</td></tr>
+        <tr><td><strong>Gewerbliche Schulpferde</strong></td><td>Schäden im bezahlten Unterricht an Schülern/Dritten + Reithalle/-platz</td><td>Zusatz · Pauschalsumme</td></tr>
+        <tr><td><strong>Reitlehrer mit Schaden am Berittpferd</strong></td><td>Schaden am fremden, in Obhut stehenden Berittpferd</td><td class="val">12.000 € oder 25.000 € (10 % SB)</td></tr>
+        <tr><td><strong>Obhutsschäden an Pensionspferden</strong></td><td>fremdes Einstellpferd kommt in Obhut zu Schaden (Tierhüterhaftung)</td><td class="val">bis 50.000 €</td></tr>
+        <tr><td><strong>Gewerbliches Kutsche-/Planwagenfahren</strong></td><td>bezahlte Kutschfahrten — Fahrgast/Dritter verletzt</td><td>Zusatz · Pauschalsumme</td></tr>
+      </tbody>
+    </table>
+    <div class="box note"><strong>So liest du die Summen:</strong> „bis X Tiere" = inklusive Stückzahl (mehr → Beitragszuschlag). Schäden, die das Pferd <strong>Dritten</strong> zufügt → volle Pauschalsumme (5/6/10 Mio.). Schäden <strong>am fremden Pferd oder gemieteten Gut</strong> (Obhut/Gewahrsam) → eigene Sublimits (50.000 € bzw. 25.000–50.000 €), meist mit Selbstbeteiligung. „Eingeschlossen" = ohne Aufpreis im Tarif; „Zusatz/Zusatzbaustein" = kostenpflichtig. Quelle: GHV Betriebshaftpflicht-Ldw-Leistungsübersicht 2024, Stand 01.06.2024.</div>
+  </section>
+
+  <!-- ===================== BLOCK D: AGRIA ===================== -->
+  <div class="blockhead bh-agria">
+    <h2>Block D · Agria — Fohlen-OP ab Geburt</h2>
+    <p>Schließt die einzige Lücke, die weder Barmenia noch GHV abdecken: OP-/Behandlungskosten des Fohlens in den ersten Lebenstagen.</p>
+  </div>
+
+  <section id="agria">
+    <h2><span class="n">D1</span>Züchter-Versicherung — Fohlen-OP-Absicherung <span class="ins ins-agria">Agria</span></h2>
+    <p class="lead">Eigenständiger Baustein auf die trächtige Stute — kein anderer Vertrag nötig. Schließt die Fohlen-OP-Lücke der ersten Lebenstage.</p>
+    <table>
+      <thead><tr><th>Leistung</th><th>Umfang</th></tr></thead>
+      <tbody>
+        <tr><td>Fohlen — tierärztliche Behandlung &amp; OP (Krankheit/Verletzung/Unfall)</td><td class="val">bis 10.000 €, erste 30 Lebenstage</td></tr>
+        <tr><td>Selbstbeteiligung / Erstattung</td><td>200 € fest / 80 %</td></tr>
+        <tr><td>Geburtskomplikationen, Kaiserschnitt, verdeckte Mängel</td><td class="yes">eingeschlossen</td></tr>
+        <tr><td>Mutterstute — Tod in den ersten 30 Tagen des Fohlens</td><td>1.000 € (z. B. Ammenstute)</td></tr>
+        <tr><td>Abschluss</td><td>ab 40. Trächtigkeitstag bis 30 Tage vor Abfohlen</td></tr>
+        <tr><td>Stute</td><td>3–22 Jahre · keine separate Stuten-Police nötig</td></tr>
+      </tbody>
+    </table>
+    <div class="box good"><strong>Eigenständig:</strong> kein OP-/Kranken-Vorvertrag der Stute erforderlich — die Fohlen-OP-Deckung steckt in der Züchter-Versicherung selbst.</div>
+    <div class="box warn"><strong>Grenzen / Übergang:</strong> deckt nur die ersten 30 Tage — danach Fohlen-Folgepolice einplanen (reguläre OP oft erst ab 9. Lebenswoche → kleine Lücke bewusst planen). <strong>Bekannte</strong> Fehlbildungen sind ausgeschlossen, nur verdeckte (unbekannte) laufen mit.</div>
+  </section>
+
+  <div class="box note" style="margin-top:24px">Der dargestellte Leistungsumfang ist eine Kurzübersicht aus öffentlichen Quellen (Barmenia/Gothaer, ROLAND, HUK-Coburg, GHV, Agria; Stiftung Warentest, Vergleichsportale). Maßgeblich ist ausschließlich der Wortlaut der jeweiligen Versicherungsbedingungen. Stand der GHV-Leistungsübersichten: 1. August 2025.</div>
+
+  <footer class="src">
+    Pferde-Versicherungskonzept Barmenia · HUK-Coburg · GHV · Agria — Best-of-Breed-Strategie. Aufbereitung: Marktrecherche Mai 2026.
+  </footer>
+</div>
+</body>
+</html>
